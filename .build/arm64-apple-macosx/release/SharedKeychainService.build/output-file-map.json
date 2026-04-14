@@ -1,0 +1,25 @@
+{
+  "": {
+    "dependencies": "/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainService.build/SharedKeychainService.d",
+    "object": "/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainService.build/SharedKeychainService.o",
+    "swift-dependencies": "/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainService.build/primary.swiftdeps"
+  },
+  "/Users/leslie/Documents/GitHub/Packages/SharedKeychain/Sources/SharedKeychainService/CallerVerifier.swift": {
+    "object": "/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainService.build/CallerVerifier.swift.o",
+    "swiftmodule": "/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainService.build/CallerVerifier~partial.swiftmodule",
+    "swift-dependencies": "/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainService.build/CallerVerifier.swiftdeps",
+    "diagnostics": "/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainService.build/CallerVerifier.dia"
+  },
+  "/Users/leslie/Documents/GitHub/Packages/SharedKeychain/Sources/SharedKeychainService/Service.swift": {
+    "object": "/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainService.build/Service.swift.o",
+    "swiftmodule": "/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainService.build/Service~partial.swiftmodule",
+    "swift-dependencies": "/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainService.build/Service.swiftdeps",
+    "diagnostics": "/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainService.build/Service.dia"
+  },
+  "/Users/leslie/Documents/GitHub/Packages/SharedKeychain/Sources/SharedKeychainService/main.swift": {
+    "object": "/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainService.build/main.swift.o",
+    "swiftmodule": "/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainService.build/main~partial.swiftmodule",
+    "swift-dependencies": "/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainService.build/main.swiftdeps",
+    "diagnostics": "/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainService.build/main.dia"
+  }
+}

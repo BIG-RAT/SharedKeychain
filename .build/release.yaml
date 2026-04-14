@@ -1,0 +1,110 @@
+client:
+  name: basic
+  file-system: device-agnostic
+tools: {}
+targets:
+  "JSK-keychain-service-arm64-apple-macosx-release.exe": ["<JSK-keychain-service-arm64-apple-macosx-release.exe>"]
+  "PackageStructure": ["<PackageStructure>"]
+  "Shared-arm64-apple-macosx-release.module": ["<Shared-arm64-apple-macosx-release.module>"]
+  "SharedKeychainClient-arm64-apple-macosx-release.module": ["<SharedKeychainClient-arm64-apple-macosx-release.module>"]
+  "SharedKeychainService-arm64-apple-macosx-release.module": ["<SharedKeychainService-arm64-apple-macosx-release.module>"]
+  "main": ["<JSK-keychain-service-arm64-apple-macosx-release.exe>","<Shared-arm64-apple-macosx-release.module>","<SharedKeychainClient-arm64-apple-macosx-release.module>","<SharedKeychainService-arm64-apple-macosx-release.module>"]
+  "test": ["<JSK-keychain-service-arm64-apple-macosx-release.exe>","<Shared-arm64-apple-macosx-release.module>","<SharedKeychainClient-arm64-apple-macosx-release.module>","<SharedKeychainService-arm64-apple-macosx-release.module>"]
+default: "main"
+nodes:
+  "/Users/leslie/Documents/GitHub/Packages/SharedKeychain/Sources/Shared/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/Users/leslie/Documents/GitHub/Packages/SharedKeychain/Sources/SharedKeychainClient/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/Users/leslie/Documents/GitHub/Packages/SharedKeychain/Sources/SharedKeychainService/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+commands:
+  "/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/JSK-keychain-service.product/Objects.LinkFileList":
+    tool: write-auxiliary-file
+    inputs: ["<link-file-list>","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/Shared.build/Protocol.swift.o","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainService.build/CallerVerifier.swift.o","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainService.build/Service.swift.o","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainService.build/main.swift.o"]
+    outputs: ["/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/JSK-keychain-service.product/Objects.LinkFileList"]
+    description: "Write auxiliary file /Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/JSK-keychain-service.product/Objects.LinkFileList"
+
+  "/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/Shared.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/Sources/Shared/Protocol.swift"]
+    outputs: ["/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/Shared.build/sources"]
+    description: "Write auxiliary file /Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/Shared.build/sources"
+
+  "/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainClient.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/Sources/SharedKeychainClient/Client.swift"]
+    outputs: ["/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainClient.build/sources"]
+    description: "Write auxiliary file /Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainClient.build/sources"
+
+  "/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainService.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/Sources/SharedKeychainService/CallerVerifier.swift","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/Sources/SharedKeychainService/Service.swift","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/Sources/SharedKeychainService/main.swift"]
+    outputs: ["/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainService.build/sources"]
+    description: "Write auxiliary file /Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainService.build/sources"
+
+  "/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt":
+    tool: write-auxiliary-file
+    inputs: ["<swift-get-version>","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"]
+    outputs: ["/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt"]
+    always-out-of-date: "true"
+    description: "Write auxiliary file /Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt"
+
+  "<JSK-keychain-service-arm64-apple-macosx-release.exe>":
+    tool: phony
+    inputs: ["/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/JSK-keychain-service"]
+    outputs: ["<JSK-keychain-service-arm64-apple-macosx-release.exe>"]
+
+  "<Shared-arm64-apple-macosx-release.module>":
+    tool: phony
+    inputs: ["/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/Shared.build/Protocol.swift.o","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/Modules/Shared.swiftmodule"]
+    outputs: ["<Shared-arm64-apple-macosx-release.module>"]
+
+  "<SharedKeychainClient-arm64-apple-macosx-release.module>":
+    tool: phony
+    inputs: ["/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainClient.build/Client.swift.o","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/Modules/SharedKeychainClient.swiftmodule"]
+    outputs: ["<SharedKeychainClient-arm64-apple-macosx-release.module>"]
+
+  "<SharedKeychainService-arm64-apple-macosx-release.module>":
+    tool: phony
+    inputs: ["/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainService.build/CallerVerifier.swift.o","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainService.build/Service.swift.o","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainService.build/main.swift.o","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/Modules/SharedKeychainService.swiftmodule"]
+    outputs: ["<SharedKeychainService-arm64-apple-macosx-release.module>"]
+
+  "C.JSK-keychain-service-arm64-apple-macosx-release.exe":
+    tool: shell
+    inputs: ["/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/Shared.build/Protocol.swift.o","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainService.build/CallerVerifier.swift.o","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainService.build/Service.swift.o","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainService.build/main.swift.o","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/JSK-keychain-service.product/Objects.LinkFileList"]
+    outputs: ["/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/JSK-keychain-service"]
+    description: "Linking ./.build/arm64-apple-macosx/release/JSK-keychain-service"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-L","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release","-o","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/JSK-keychain-service","-module-name","JSK_keychain_service","-Xlinker","-no_warn_duplicate_libraries","-emit-executable","-Xlinker","-dead_strip","-Xlinker","-alias","-Xlinker","_SharedKeychainService_main","-Xlinker","_main","-Xlinker","-rpath","-Xlinker","@loader_path","@/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/JSK-keychain-service.product/Objects.LinkFileList","-Xlinker","-rpath","-Xlinker","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift-6.2/macosx","-target","arm64-apple-macosx13.0","-plugin-path","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.4.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g"]
+
+  "C.Shared-arm64-apple-macosx-release.module":
+    tool: shell
+    inputs: ["/Users/leslie/Documents/GitHub/Packages/SharedKeychain/Sources/Shared/Protocol.swift","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/Shared.build/sources"]
+    outputs: ["/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/Shared.build/Protocol.swift.o","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/Modules/Shared.swiftmodule"]
+    description: "Compiling Swift Module 'Shared' (1 sources)"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","Shared","-emit-dependencies","-emit-module","-emit-module-path","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/Modules/Shared.swiftmodule","-output-file-map","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/Shared.build/output-file-map.json","-parse-as-library","-whole-module-optimization","-num-threads","11","-c","@/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/Shared.build/sources","-I","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/Modules","-target","arm64-apple-macosx13.0","-whole-module-optimization","-num-threads","11","-serialize-diagnostics","-O","-j11","-DSWIFT_PACKAGE","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/ModuleCache","-parseable-output","-parse-as-library","-emit-objc-header","-emit-objc-header-path","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/Shared.build/include/Shared-Swift.h","-color-diagnostics","-swift-version","5","-plugin-path","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.4.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.4.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-fPIC","-Xcc","-g","-package-name","sharedkeychain"]
+
+  "C.SharedKeychainClient-arm64-apple-macosx-release.module":
+    tool: shell
+    inputs: ["/Users/leslie/Documents/GitHub/Packages/SharedKeychain/Sources/SharedKeychainClient/Client.swift","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/Modules/Shared.swiftmodule","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainClient.build/sources"]
+    outputs: ["/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainClient.build/Client.swift.o","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/Modules/SharedKeychainClient.swiftmodule"]
+    description: "Compiling Swift Module 'SharedKeychainClient' (1 sources)"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","SharedKeychainClient","-emit-dependencies","-emit-module","-emit-module-path","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/Modules/SharedKeychainClient.swiftmodule","-output-file-map","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainClient.build/output-file-map.json","-parse-as-library","-whole-module-optimization","-num-threads","11","-c","@/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainClient.build/sources","-I","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/Modules","-target","arm64-apple-macosx13.0","-whole-module-optimization","-num-threads","11","-serialize-diagnostics","-O","-j11","-DSWIFT_PACKAGE","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/ModuleCache","-parseable-output","-parse-as-library","-emit-objc-header","-emit-objc-header-path","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainClient.build/include/SharedKeychainClient-Swift.h","-color-diagnostics","-swift-version","5","-plugin-path","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.4.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.4.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-fPIC","-Xcc","-g","-package-name","sharedkeychain"]
+
+  "C.SharedKeychainService-arm64-apple-macosx-release.module":
+    tool: shell
+    inputs: ["/Users/leslie/Documents/GitHub/Packages/SharedKeychain/Sources/SharedKeychainService/CallerVerifier.swift","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/Sources/SharedKeychainService/Service.swift","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/Sources/SharedKeychainService/main.swift","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/Modules/Shared.swiftmodule","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainService.build/sources"]
+    outputs: ["/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainService.build/CallerVerifier.swift.o","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainService.build/Service.swift.o","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainService.build/main.swift.o","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/Modules/SharedKeychainService.swiftmodule"]
+    description: "Compiling Swift Module 'SharedKeychainService' (3 sources)"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","SharedKeychainService","-emit-dependencies","-emit-module","-emit-module-path","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/Modules/SharedKeychainService.swiftmodule","-output-file-map","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainService.build/output-file-map.json","-whole-module-optimization","-num-threads","11","-c","@/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainService.build/sources","-I","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/Modules","-target","arm64-apple-macosx13.0","-whole-module-optimization","-num-threads","11","-serialize-diagnostics","-O","-j11","-DSWIFT_PACKAGE","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/ModuleCache","-parseable-output","-Xfrontend","-entry-point-function-name","-Xfrontend","SharedKeychainService_main","-color-diagnostics","-swift-version","5","-plugin-path","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.4.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.4.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-fPIC","-Xcc","-g","-package-name","sharedkeychain"]
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/Users/leslie/Documents/GitHub/Packages/SharedKeychain/Sources/Shared/","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/Sources/SharedKeychainClient/","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/Sources/SharedKeychainService/","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/Package.swift","/Users/leslie/Documents/GitHub/Packages/SharedKeychain/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+
