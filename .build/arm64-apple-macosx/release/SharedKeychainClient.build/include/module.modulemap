@@ -1,3 +1,0 @@
-module SharedKeychainClient {
-    header "/Users/leslie/Documents/GitHub/Packages/SharedKeychain/.build/arm64-apple-macosx/release/SharedKeychainClient.build/include/SharedKeychainClient-Swift.h"
-}
